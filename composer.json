@@ -1,0 +1,18 @@
+{
+    "name": "bitsmist/bitsmist-skeleton",
+    "type": "framework",
+    "description": "Bitsmist Blank Server Application",
+	"keywords": ["php", "framework", "webapi"],
+	"homepage": "https://bitsmist.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Masaki Yasutake",
+            "email": "my17560@gmail.com"
+        }
+    ],
+	"require": {
+    	"bitsmist/bitsmist_v1": "^0.9.0",
+    	"bitsmist/bitsmist-lib_v1": "^0.9.0"
+	}
+}
