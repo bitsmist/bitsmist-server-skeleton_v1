@@ -93,6 +93,7 @@ return [
 		"statuscodeHandler" => [],
 		"resultHandler" => [],
 		"jsonRenderer" => [],
+		"originHeader" => [],
 //		"echoExceptionHandler" => [],
 	],
 
