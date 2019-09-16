@@ -75,8 +75,16 @@ return [
 	"middlewares" => [
 		// Session
 
-		"phpSession" => [
-			"class" => "Bitsmist\\v1\Middlewares\Session\PhpSession",
+		"startSession" => [
+			"class" => "Bitsmist\\v1\Middlewares\Session\StartSession",
+		],
+
+		"destroySession" => [
+			"class" => "Bitsmist\\v1\Middlewares\Session\DestroySession",
+		],
+
+		"regenerateSession" => [
+			"class" => "Bitsmist\\v1\Middlewares\Session\RegenerateSession",
 		],
 
 		// Authenticator
