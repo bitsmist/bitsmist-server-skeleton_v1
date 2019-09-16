@@ -79,6 +79,12 @@ return [
 			"class" => "Bitsmist\\v1\Middlewares\Session\PhpSession",
 		],
 
+		// Authenticator
+
+		"loginAuth" => [
+			"class" => "Bitsmist\\v1\Middlewares\Authenticator\LoginAuthenticator",
+		],
+
 		// Connection
 
 		"connectDb" => [
