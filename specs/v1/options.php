@@ -17,7 +17,7 @@ return [
 		"eventController" => [
 			"events" => [
 				"session" => [
-					"phpSession" => [],
+					"startSession" => [],
 				],
 				"security" => [
 					"headerSecurity" => [],
