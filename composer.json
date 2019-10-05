@@ -1,7 +1,7 @@
 {
     "name": "bitsmist/bitsmist-skeleton_v1",
     "type": "framework",
-    "description": "Bitsmist Blank Server Application",
+    "description": "Bitsmist Blank Server Application.",
 	"keywords": ["php", "framework", "webapi"],
 	"homepage": "https://bitsmist.com",
     "license": "MIT",
