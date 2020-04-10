@@ -28,6 +28,12 @@ return [
 						"event" => "security",
 					],
 				],
+				"validation" => [
+					"queryValidator" => [],
+					"customHandler" => [
+						"event" => "format",
+					],
+				],
 				"handle" => [
 					"destroySession" => [],
 					"loginAuth" => [],

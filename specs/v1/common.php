@@ -36,7 +36,14 @@ return [
 						"event" => "security",
 					],
 				],
+				"validation" => [
+					"queryValidator" => [],
+					"customHandler" => [
+						"event" => "format",
+					],
+				],
 				"format" => [
+					"queryLimiter" => [],
 					"queryFormatter" => [],
 					"customHandler" => [
 						"event" => "format",

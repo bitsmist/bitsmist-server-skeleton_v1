@@ -123,6 +123,12 @@ return [
 			"class" => "Bitsmist\\v1\Middlewares\Authorizer\SessionAuthorizer",
 		],
 
+		// Validator
+
+		"queryValidator"	=> [
+			"class" => "Bitsmist\\v1\Middlewares\Validator\QueryValidator",
+		],
+
 		// Formatter
 
 		"queryFormatter"	=> [
@@ -131,6 +137,10 @@ return [
 
 		"dataFormatter"	=> [
 			"class" => "Bitsmist\\v1\Middlewares\Formatter\DataFormatter",
+		],
+
+		"queryLimiter"	=> [
+			"class" => "Bitsmist\\v1\Middlewares\Formatter\QueryLimiter",
 		],
 
 		// Renderer
