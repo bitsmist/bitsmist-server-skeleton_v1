@@ -1,5 +1,5 @@
 {
-    "name": "bitsmist/bitsmist-skeleton_v1",
+    "name": "bitsmist/bitsmist-server-skeleton_v1",
     "type": "framework",
     "description": "Bitsmist Blank Server Application.",
 	"keywords": ["php", "framework", "webapi"],
@@ -12,6 +12,6 @@
         }
     ],
 	"require": {
-    	"bitsmist/bitsmist_v1": "^0.9.0"
+    	"bitsmist/bitsmist-server_v1": "^0.9.0"
 	}
 }
