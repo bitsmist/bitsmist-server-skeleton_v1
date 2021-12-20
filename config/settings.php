@@ -130,13 +130,15 @@ return [
 	//	Middlewares
 	// -------------------------------------------------------------------------
 
+	// Initializer
+
 	"routeInitializer" => [
 		"className" => "Bitsmist\\v1\Middlewares\Initializer\RouteInitializer",
 	],
 
 	"settingsInitializer" => [
 		"className" => "Bitsmist\\v1\Middlewares\Initializer\SettingsInitializer",
-		"settings" => [
+		"uses" => [
 			"{appRoot}/config/settings.php",
 			"{sysRoot}/config/{method}.php",
 			"{appRoot}/config/{method}.php",
@@ -233,16 +235,8 @@ return [
 
 	// Handler
 
-	"autoHandler"	=> [
-		"className" => "Bitsmist\\v1\Middlewares\Handler\AutoHandler",
-	],
-
 	"dbHandler"	=> [
 		"className" => "Bitsmist\\v1\Middlewares\Handler\DBHandler",
-	],
-
-	"modelHandler"	=> [
-		"className" => "Bitsmist\\v1\Middlewares\Handler\ModelHandler",
 	],
 
 	"customHandler"	=> [
