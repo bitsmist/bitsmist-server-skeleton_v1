@@ -1,20 +1,29 @@
 <?php
+declare(strict_types=1);
+
+require __DIR__ . "/../vendor/autoload.php";
 
 // Get system version
 function getSystemVersion()
 {
-	preg_match('/v([0-9]+)-[0-9]+/', $_SERVER["REQUEST_URI"], $match);
-	$sysVer = ( count($match) > 1 ? $match[1] : 1 );
-
-	return $sysVer;
+	return "1";
 }
 
-// Load a file for the system version
-function load()
+// Start application
+function run(string $sysVer)
 {
-	$sysVer = getSystemVersion();
-	require __DIR__ . "/v" . $sysVer . "/run.php";
-	init($sysVer);
+	// Load global settings
+	$settingFile = __DIR__ . "/../config/settings.php";
+	if (is_readable($settingFile))
+	{
+		$settings = require $settingFile;
+	}
+
+	// Run the application
+	$className = "Bitsmist\\v" . $sysVer . "\App";
+	$bitsmist = new $className($settings);
+	$bitsmist->run();
 }
 
-load();
+$sysVer = getSystemVersion();
+run($sysVer);
