@@ -91,7 +91,7 @@ return [
 			"queryFormatter",
 			// Handle
 			"dbHandler",
-			"customHandler",
+			"customMiddlewareHandler",
 			"dataFormatter",
 			"paginationHandler",
 			"resultHandler",
@@ -239,8 +239,8 @@ return [
 		"className" => "Bitsmist\\v1\Middlewares\Handler\DBHandler",
 	],
 
-	"customHandler"	=> [
-		"className" => "Bitsmist\\v1\Middlewares\Handler\CustomHandler",
+	"customMiddlewareHandler" => [
+		"className" => "Bitsmist\\v1\Middlewares\Handler\CustomMiddlewareHandler",
 		"uses" => [
 			"{appRoot}/handlers/{method}_{resource}.php",
 		]
@@ -271,7 +271,6 @@ return [
 	"echoExceptionHandler"	=> [
 		"className" => "Bitsmist\\v1\Middlewares\ExceptionHandler\EchoExceptionHandler",
 	],
-
 
 	// -------------------------------------------------------------------------
 	//	Plugins
