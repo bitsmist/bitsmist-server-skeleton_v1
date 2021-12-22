@@ -19,8 +19,8 @@ return [
     "options" => [
 //        "showErrors" => true,
       	"showErrorsInHTML" => true,
-		"rootDir" => __DIR__ . "/../",
-		"sitesDir" => __DIR__ . "/../sites/",
+		"sysRoot" => __DIR__ . "/../",
+		"appRoot" => "{sysRoot}/sites/v{appVer}/{appName}",
     ],
 
 	// -------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
 		"className" => "nikic\FastRoute",
 		"routes" => [
 			"default" => [
-				"route" =>"/v{appVersion}/{resource}/{resource_id}",
+				"route" =>"/v{appVer}/{resource}/{resource_id}",
 				"handler" => "default",
 			],
 		],
