@@ -4,21 +4,29 @@ return [
 	//	PHP options
 	// -------------------------------------------------------------------------
 
+	// Dev
+	"phpOptions" => [
+		"display_errors" => "1",
+		"display_startup_errors" => "1",
+		"error_reporting" => E_ALL,
+		"session.cookie_httponly" => true,
+	],
+
+	// Prod
+	/*
 	"phpOptions" => [
 		"display_errors" => "0",
 		"display_startup_errors" => "0",
-		"error_reporting" => E_ALL,
 		"session.cookie_httponly" => true,
 		"session.cookie_secure" => true,
 	],
+	 */
 
 	// -------------------------------------------------------------------------
 	//	Options
 	// -------------------------------------------------------------------------
 
     "options" => [
-//        "showErrors" => true,
-      	"showErrorsInHTML" => true,
 		"sysRoot" => __DIR__ . "/../",
 		"appRoot" => "{sysRoot}/sites/v{appVer}/{appName}",
     ],
