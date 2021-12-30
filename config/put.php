@@ -5,6 +5,8 @@ return [
 	// -------------------------------------------------------------------------
 
 	"options" => [
-		"needPreflight" => true,
+		"requiredHeaders" =>[
+			"X-Requested-With",
+		],
 	],
 ];

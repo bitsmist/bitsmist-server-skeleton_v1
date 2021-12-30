@@ -86,7 +86,9 @@ return [
 		"className" => "Bitsmist\\v1\Services\MiddlewareService",
 		"uses" => [
 			// Validate
-			"headerValidator",
+			"hostHeaderValidator",
+			"originHeaderValidator",
+			"requiredHeaderValidator",
 			"parameterValidator",
 			// Session
 			"startSessionHandler",
@@ -133,6 +135,15 @@ return [
 			"httpEmitter"
 		]
 	],
+
+	"logger" => [
+		"className" => "Bitsmist\\v1\Services\PluginService",
+	],
+
+	"db" => [
+		"className" => "Bitsmist\\v1\Services\PluginService",
+	],
+
 
 	// -------------------------------------------------------------------------
 	//	Middlewares
@@ -199,16 +210,20 @@ return [
 
 	// Validator
 
-	"headerValidator" => [
-		"className" => "Bitsmist\\v1\Middlewares\Validator\HeaderValidator",
+	"hostHeaderValidator" => [
+		"className" => "Bitsmist\\v1\Middlewares\Validator\HostHeaderValidator",
+	],
+
+	"originHeaderValidator" => [
+		"className" => "Bitsmist\\v1\Middlewares\Validator\OriginHeaderValidator",
+	],
+
+	"requiredHeaderValidator" => [
+		"className" => "Bitsmist\\v1\Middlewares\Validator\RequiredHeaderValidator",
 	],
 
 	"parameterValidator" => [
 		"className" => "Bitsmist\\v1\Middlewares\Validator\ParameterValidator",
-	],
-
-	"queryValidator"	=> [
-		"className" => "Bitsmist\\v1\Middlewares\Validator\QueryValidator",
 	],
 
 	// Formatter
@@ -250,6 +265,8 @@ return [
 	"customMiddlewareHandler" => [
 		"className" => "Bitsmist\\v1\Middlewares\Handler\CustomMiddlewareHandler",
 		"uses" => [
+			"{appRoot}/handlers/{method}.php",
+			"{appRoot}/handlers/{resource}.php",
 			"{appRoot}/handlers/{method}_{resource}.php",
 		]
 	],

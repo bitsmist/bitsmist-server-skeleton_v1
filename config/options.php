@@ -8,10 +8,9 @@ return [
 
 	"options" => [
 		"extraHeaders" =>[
-			"Access-Control-Allow-Credentials" => "true",
-			"Access-Control-Max-Age" => "600",
-			"Access-Control-Allow-Methods" => "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-			"Access-Control-Allow-Headers" => "",
+			"Access-Control-Allow-Headers" => "Content-Type, Authorization, X-Requested-With",
+			"Access-Control-Allow-Methods" => "GET, POST, PUT, DELETE, OPTIONS",
+			"Access-Control-Max-Age" => "86400",
 		],
 	],
 
@@ -22,9 +21,11 @@ return [
 	"mainController" => [
 		"uses" => [
 			// Validate
-			"headerValidator",
-			// Session
-			"startSessionHandler",
+			"hostHeaderValidator",
+			"originHeaderValidator",
+			"requiredHeaderValidator",
+			// Handle
+			"customMiddlewareHandler",
 			// Build header
 			"extraHeaderBuilder",
 			"originHeaderBuilder",

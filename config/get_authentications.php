@@ -9,7 +9,9 @@ return [
 	"mainController" => [
 		"uses" => [
 			// Validate
-			"headerValidator",
+			"hostHeaderValidator",
+			"originHeaderValidator",
+			//"requiredHeaderValidator",
 			"parameterValidator",
 			// Session
 			"startSessionHandler",
@@ -17,6 +19,7 @@ return [
 			"DBConnector",
 			// Handle
 			"loginAuth",
+			"customMiddlewareHandler",
 			"resultHandler",
 			"statuscodeHandler",
 			// Render

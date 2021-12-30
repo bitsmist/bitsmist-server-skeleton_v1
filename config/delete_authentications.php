@@ -9,11 +9,14 @@ return [
 	"mainController" => [
 		"uses" => [
 			// Validate
-			"headerValidator",
+			"hostHeaderValidator",
+			"originHeaderValidator",
+			"requiredHeaderValidator",
 			// Session
 			"startSessionHandler",
 			"destroySessionHandler",
 			// Handle
+			"customMiddlewareHandler",
 			"resultHandler",
 			"statuscodeHandler",
 			// Render
