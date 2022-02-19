@@ -4,29 +4,20 @@ return [
 	//	PHP options
 	// -------------------------------------------------------------------------
 
-	// Dev
-	"phpOptions" => [
-		"display_errors" => "1",
-		"display_startup_errors" => "1",
-		"error_reporting" => E_ALL,
-		"session.cookie_httponly" => true,
-	],
-
-	// Prod
-	/*
 	"phpOptions" => [
 		"display_errors" => "0",
 		"display_startup_errors" => "0",
 		"session.cookie_httponly" => true,
 		"session.cookie_secure" => true,
 	],
-	 */
 
 	// -------------------------------------------------------------------------
 	//	Options
 	// -------------------------------------------------------------------------
 
     "options" => [
+		"showErrors" => true,
+		"showErrorsInHtml" => true,
 		"sysRoot" => __DIR__ . "/../",
 		"appRoot" => "{sysRoot}/sites/v{appVer}/{appName}",
     ],
@@ -144,6 +135,13 @@ return [
 		"className" => "Bitsmist\\v1\Services\PluginService",
 	],
 
+	// -------------------------------------------------------------------------
+	//	Plugins
+	// -------------------------------------------------------------------------
+
+	"httpEmitter" => [
+		"className" => "Bitsmist\\v1\Plugins\Emitter\HttpEmitter",
+	],
 
 	// -------------------------------------------------------------------------
 	//	Middlewares
@@ -296,13 +294,4 @@ return [
 	"echoExceptionHandler"	=> [
 		"className" => "Bitsmist\\v1\Middlewares\ExceptionHandler\EchoExceptionHandler",
 	],
-
-	// -------------------------------------------------------------------------
-	//	Plugins
-	// -------------------------------------------------------------------------
-
-	"httpEmitter" => [
-		"className" => "Bitsmist\\v1\Plugins\Emitter\HttpEmitter",
-	],
-
 ];
