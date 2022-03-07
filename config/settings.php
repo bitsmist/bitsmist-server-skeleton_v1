@@ -7,8 +7,6 @@ return [
 	"phpOptions" => [
 		"display_errors" => "0",
 		"display_startup_errors" => "0",
-		"session.cookie_httponly" => true,
-		"session.cookie_secure" => true,
 	],
 
 	// -------------------------------------------------------------------------
@@ -67,7 +65,9 @@ return [
 	"setupController" => [
 		"className" => "Bitsmist\\v1\Services\MiddlewareService",
 		"uses" => [
+			"sysInfoInitializer",
 			"routeInitializer",
+			"appInfoInitializer",
 			"settingsInitializer",
 			"phpInitializer",
 		]
