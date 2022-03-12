@@ -12,6 +12,6 @@
         }
     ],
 	"require": {
-    	"bitsmist/bitsmist-server_v1": "^0.9.0"
+    	"bitsmist/bitsmist-server_v1": "~0.9"
 	}
 }
