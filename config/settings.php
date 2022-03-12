@@ -14,8 +14,8 @@ return [
 	// -------------------------------------------------------------------------
 
     "options" => [
-		"showErrors" => true,
-		"showErrorsInHtml" => true,
+		"showErrors" => false,
+		"showErrorsInHtml" => false,
 		"sysRoot" => __DIR__ . "/../",
 		"appRoot" => "{sysRoot}/sites/v{appVer}/{appName}",
     ],
@@ -26,12 +26,12 @@ return [
 
 	// Request
 	"request" => [
-		"className" => "\Zend\Diactoros\ServerRequestFactory",
+		"className" => "\Laminas\Diactoros\ServerRequestFactory",
 	],
 
 	// Response
 	"response" => [
-		"className" => "\Zend\Diactoros\Response",
+		"className" => "\Laminas\Diactoros\Response",
 	],
 
 	// -------------------------------------------------------------------------
@@ -49,16 +49,16 @@ return [
 	],
 
 	// -------------------------------------------------------------------------
-	//	Services
+	//	Controllers
 	// -------------------------------------------------------------------------
 
-	"services" => [
-		"className" => "Bitsmist\\v1\Services\ServiceManager",
+	"controllers" => [
+		"className" => "Bitsmist\\v1\Services\PluginService",
 		"uses" => [
 			"setupController",
 			"mainController",
 			"errorController",
-			"emitter",
+			"emitterController",
 		]
 	],
 
@@ -120,27 +120,70 @@ return [
 		],
 	],
 
-	"emitter" => [
+	"emitterController" => [
+		"className" => "Bitsmist\\v1\Plugins\Emitter\HttpEmitter",
+	],
+
+	// -------------------------------------------------------------------------
+	//	Services
+	// -------------------------------------------------------------------------
+
+	"services" => [
 		"className" => "Bitsmist\\v1\Services\PluginService",
 		"uses" => [
-			"httpEmitter"
+			"logger",
+			"db",
 		]
 	],
 
 	"logger" => [
 		"className" => "Bitsmist\\v1\Services\PluginService",
+		"uses" => [
+			"warningLogger"
+		]
 	],
 
 	"db" => [
 		"className" => "Bitsmist\\v1\Services\PluginService",
+		"uses" => [
+		]
 	],
 
 	// -------------------------------------------------------------------------
 	//	Plugins
 	// -------------------------------------------------------------------------
 
-	"httpEmitter" => [
-		"className" => "Bitsmist\\v1\Plugins\Emitter\HttpEmitter",
+	"debugLogger" => [
+		"className" => "Bitsmist\\v1\Plugins\Logger\FileLogger",
+		"level" => "debug",
+		"baseDir" => __DIR__ . "/../log/",
+		"fileName" => "SaleQuest.log",
+	],
+
+	"warningLogger" => [
+		"className" => "Bitsmist\\v1\Plugins\Logger\FileLogger",
+		"level" => "warning",
+		"baseDir" => __DIR__ . "/../log/",
+		"fileName" => "SaleQuest.log",
+	],
+
+	"mysqlDB" => [
+		"className" => "Bitsmist\\v1\Plugins\DB\MysqlDB",
+		"type" => "MYSQL",
+   		"dsn" => "mysql:host=127.0.0.1;dbname=salequest;charset=utf8",
+		"user" => "salequest",
+		"password" => "3DMoT-2n_ico",
+	],
+
+	"elasticsearchDB" => [
+		"className" => "Bitsmist\\v1\Plugins\DB\ElasticsearchDB",
+		"type" => "ELASTICSEARCH",
+		"dsn" => "localhost:9200",
+		"index" => "salequest",
+		"curlOptions" => [
+			"CURLOPT_SSL_VERIFYPEER" => false,
+			"CURLOPT_IPRESOLVE"	=> "CURL_IPRESOLVE_V4",
+		]
 	],
 
 	// -------------------------------------------------------------------------
@@ -151,6 +194,13 @@ return [
 
 	"routeInitializer" => [
 		"className" => "Bitsmist\\v1\Middlewares\Initializer\RouteInitializer",
+	],
+	"sysInfoInitializer" => [
+		"className" => "Bitsmist\\v1\Middlewares\Initializer\SysInfoInitializer",
+	],
+
+	"appInfoInitializer" => [
+		"className" => "Bitsmist\\v1\Middlewares\Initializer\AppInfoInitializer",
 	],
 
 	"settingsInitializer" => [
