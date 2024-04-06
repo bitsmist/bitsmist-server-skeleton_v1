@@ -7,6 +7,8 @@ return [
 	"phpOptions" => [
 		"display_errors" => "0",
 		"display_startup_errors" => "0",
+		"session.cookie_httponly" => true,
+		"session.cookie_secure" => true,
 	],
 
 	// -------------------------------------------------------------------------
@@ -157,33 +159,14 @@ return [
 		"className" => "Bitsmist\\v1\Plugins\Logger\FileLogger",
 		"level" => "debug",
 		"baseDir" => __DIR__ . "/../log/",
-		"fileName" => "SaleQuest.log",
+		"fileName" => "bitsmist_debug.log",
 	],
 
 	"warningLogger" => [
 		"className" => "Bitsmist\\v1\Plugins\Logger\FileLogger",
 		"level" => "warning",
 		"baseDir" => __DIR__ . "/../log/",
-		"fileName" => "SaleQuest.log",
-	],
-
-	"mysqlDB" => [
-		"className" => "Bitsmist\\v1\Plugins\DB\MysqlDB",
-		"type" => "MYSQL",
-   		"dsn" => "mysql:host=127.0.0.1;dbname=salequest;charset=utf8",
-		"user" => "salequest",
-		"password" => "3DMoT-2n_ico",
-	],
-
-	"elasticsearchDB" => [
-		"className" => "Bitsmist\\v1\Plugins\DB\ElasticsearchDB",
-		"type" => "ELASTICSEARCH",
-		"dsn" => "localhost:9200",
-		"index" => "salequest",
-		"curlOptions" => [
-			"CURLOPT_SSL_VERIFYPEER" => false,
-			"CURLOPT_IPRESOLVE"	=> "CURL_IPRESOLVE_V4",
-		]
+		"fileName" => "bitsmist_warning.log",
 	],
 
 	// -------------------------------------------------------------------------
