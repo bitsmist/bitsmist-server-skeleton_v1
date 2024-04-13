@@ -178,6 +178,7 @@ return [
 	"routeInitializer" => [
 		"className" => "Bitsmist\\v1\Middlewares\Initializer\RouteInitializer",
 	],
+
 	"sysInfoInitializer" => [
 		"className" => "Bitsmist\\v1\Middlewares\Initializer\SysInfoInitializer",
 	],
